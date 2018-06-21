@@ -71,11 +71,28 @@
     $.magnificPopup.close();
   });
 
-
-
- 
-
-
+  // Modal popup$(function () {
+    $('.portfolio-item').magnificPopup({
+      type: 'inline',
+      preloader: false,
+      focus: '#username',
+      modal: true,
+      callbacks: {
+        open: () => $("#proxitask-video").get(0).play(),
+        close: () => { 
+          let video = $("#proxitask-video").get(0);
+          
+          video.pause();
+          video.currentTime = 0
+        }
+  
+      }
+    });
+    $(document).on('click', '.portfolio-modal-dismiss', function(e) {
+      e.preventDefault();
+      $.magnificPopup.close();
+    });
+  
 
   // Floating label headings for the contact form
   $(function() {
